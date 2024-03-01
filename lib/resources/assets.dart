@@ -15,5 +15,10 @@ class Assets {
   static const String textBgImg = "assets/images/text_bg_img.png";
   static const String backIcon = "assets/images/back_icon.png";
   static const String loginLogo = "assets/images/login_logo_img.png";
+  static const String codePickerArrow = "assets/images/code_picker_arrow.png";
+  static const String searchIcon = "assets/images/search_icon.png";
+  static const String registerSuccessPopupBg = "assets/images/register_success_popup_bg.png";
+  static const String dashboardSliderImg = "assets/images/dashboard_slider_img.png";
+  static const String dashboardSliderBg = "assets/images/dashboard_gradient_img.png";
 
 }

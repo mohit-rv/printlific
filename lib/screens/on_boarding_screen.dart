@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:printlific/resources/assets.dart';
 import 'package:printlific/screens/login_signup_screen.dart';
+import 'package:printlific/wigets/common_button.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -34,33 +35,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar:
-      InkWell(
+      CommonButton(
+        title: "Get Started",
         onTap: () {
 
           Navigator.of(context).push(CupertinoPageRoute(builder: (context) => LoginSignUpScreen()));
 
         },
-        child: Container(
-          height: 60,
-          margin: EdgeInsets.only(left: 22, right: 22, bottom: 30),
-          decoration: ShapeDecoration(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(6)),
-            ),
-            color: HexColor("#1F4CE0"),
-          ),
-          child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              "Get Started",
-              style: TextStyle(
-                fontFamily: "Montserrat SemiBold",
-                fontSize: 16,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
       ),
       body: Stack(
         children: [

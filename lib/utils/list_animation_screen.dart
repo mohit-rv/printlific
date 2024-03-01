@@ -227,7 +227,7 @@ class _ListAnimationState extends State<ListAnimation> {
 
   void _startScroll() {
 
-    Future.delayed(Duration(milliseconds: 300), () {
+    Future.delayed(Duration(milliseconds: 400), () {
 
       _controller.animateTo(_controller.position.maxScrollExtent,
           duration: Duration(milliseconds: 8000), curve: Curves.linear);
