@@ -5,6 +5,8 @@ import 'package:printlific/resources/assets.dart';
 import 'package:printlific/screens/login_signup_screen.dart';
 import 'package:printlific/wigets/common_button.dart';
 
+import 'dashboard_screen.dart';
+
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
 
@@ -39,7 +41,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         title: "Get Started",
         onTap: () {
 
-          Navigator.of(context).push(CupertinoPageRoute(builder: (context) => LoginSignUpScreen()));
+          //Navigator.of(context).push(CupertinoPageRoute(builder: (context) => LoginSignUpScreen()));
+          Navigator.of(context).push(CupertinoPageRoute(builder: (context) => DashboardScreen()));
 
         },
       ),
