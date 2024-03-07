@@ -20,5 +20,13 @@ class Assets {
   static const String registerSuccessPopupBg = "assets/images/register_success_popup_bg.png";
   static const String dashboardSliderImg = "assets/images/dashboard_slider_img.png";
   static const String dashboardSliderBg = "assets/images/dashboard_gradient_img.png";
+  static const String user = "assets/images/user.png";
+  static const String email = "assets/images/email.png";
+  static const String phone = "assets/images/phone.png";
+  static const String keyIcon = "assets/images/keyPass.png";
+  static const String line = "assets/images/line.png";
+  static const String oppline = "assets/images/oppline.png";
+  static const String google = "assets/images/google.png";
+  static const String facebook = "assets/images/facebook.png";
 
 }
