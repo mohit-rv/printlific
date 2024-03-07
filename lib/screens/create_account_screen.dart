@@ -22,6 +22,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   bool name = false;
   bool email = false;
   bool phone = false;
+  bool phone2 = false;
   bool pass = false;
   bool pass2 = false;
   bool confPass = false;
@@ -56,15 +57,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     phoneNode = FocusNode();
   }
 
-  nameError() {
-   return Container(
-     margin: EdgeInsets.only(right: 200),
-     child: Text(name ? '': 'Enter name',style: TextStyle(
-         fontFamily: "Montserrat Regular",
-         fontSize: 13,
-         color: Colors.red)),
-   );
-  }
 
 
   @override
@@ -84,16 +76,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   }
 
 
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: _appBar(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
           child: Column(
            // mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -158,8 +146,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 ),
               ),
               getNameField(),
-            Container(
-              margin: EdgeInsets.only(right: 220),
+            Container(//how to aligin container in left in screen in flutter
+              alignment: Alignment.centerLeft,
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(left: 25),
               child: Text(name ? 'Enter name': '',
                   style: TextStyle(
                   fontFamily: "Montserrat SemiBold",
@@ -169,7 +159,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 25,top: 20),
+                margin: EdgeInsets.only(left: 25,top: 2),
                 child: Text('Email',textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -181,7 +171,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               getEmailField(),
               emailController.text.isEmpty ? Container(
-                margin: EdgeInsets.only(right: 220),
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
                 child: Text(email ? 'Enter email': '',
                     style: TextStyle(
                     fontFamily: "Montserrat SemiBold",
@@ -189,7 +181,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     color: Colors.red)),
               ):
               Container(
-                margin: EdgeInsets.only(right: 170),
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
                 child: Text(validEmail ? 'Enter valid email id': '',
                     style: TextStyle(
                         fontFamily: "Montserrat SemiBold",
@@ -199,7 +193,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 25,top: 20),
+                margin: EdgeInsets.only(left: 25,top: 2),
                 child: Text('Phone Number',textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -210,19 +204,33 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 ),
               ),
               getPhoneField(),
-              Container(
-                margin: EdgeInsets.only(right: 200),
-                child: Text(phone ? 'Enter phone no': '',
+              phoneController.text.isEmpty ? Container(
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
+                child: Text(
+                    phone ? 'Enter phone no': '',
                     style: TextStyle(
                     fontFamily: "Montserrat SemiBold",
                     fontSize: 13,
                     color: Colors.red)),
+              ):
+              Container(
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
+                child: Text(
+                    phone2 ? 'Length should be 10': '',
+                    style: TextStyle(
+                        fontFamily: "Montserrat SemiBold",
+                        fontSize: 13,
+                        color: Colors.red)),
               ),
 
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 25,top: 20),
+                margin: EdgeInsets.only(left: 25,top: 2),
                 child: Text('Password',textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -234,15 +242,19 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               getPasswordField(),
               passwordController.text.isEmpty ? Container(
-                margin: EdgeInsets.only(right: 200),
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
                 child: Text(pass ? 'Enter password': '',style: TextStyle(
                     fontFamily: "Montserrat SemiBold",
                     fontSize: 13,
                     color: Colors.red)),
               ) :
               Container(
-                margin: EdgeInsets.only(right: 210),
-                child: Text(pass2 ? 'invalid pass ': '',
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
+                child: Text(pass2 ? 'Password length must be at leat 8': '',
                     style: TextStyle(
                     fontFamily: "Montserrat SemiBold",
                     fontSize: 13,
@@ -252,7 +264,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 25,top: 20),
+                margin: EdgeInsets.only(left: 25,top: 2),
                 child: Text('Confirm Password',textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -264,8 +276,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               confirmPassField(),
               Container(
-                margin: EdgeInsets.only(right: 130),
-                child: Text(confPass ? 'password is not matching': '',
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
+                child: Text(confPass ? 'Password is not matching': '',
                     style: TextStyle(
                     fontFamily: "Montserrat SemiBold",
                     fontSize: 13,
@@ -280,9 +294,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     Expanded(
                       child: RichText(
                         text: TextSpan(
-                          //how to apply diffrent operations on a line of text in flutter
-                          // text: 'Hello ',
-                          // style: DefaultTextStyle.of(context).style,
                           children:  <TextSpan>[
                             TextSpan(text: 'By hitting the "Register" button, you agree to the',
                               style: TextStyle(
@@ -334,99 +345,105 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 child: CommonButton(
                     onTap: (){
 
-                       if(nameController.text.isEmpty){
-                         setState(() {
-                           name= true;
-                         });
-                         nameNode.requestFocus();
-                         if(emailController.text.isEmpty) {
-                           setState(() {
-                             email = true;
-                             //  emailNode.hasFocus;
-                           });
-                           if(phoneController.text.isEmpty){
-                             setState(() {
-                               phone = true;
-                             });
-                             if(passwordController.text.isEmpty){
-                               setState(() {
-                                 pass = true;
-                               });
-                               // if(confirmPassController.text.isEmpty){
-                               //   setState(() {
-                               //     confPass = true;
-                               //   });
-                               // }
-                             }
-                           }
-                         }
-                       }
-                       else if(emailController.text.isEmpty) {
-                         setState(() {
-                           email = true;
-                         });
-                         emailNode.requestFocus();
-                         print('Emptey email id');
-                       }
-                       else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                           .hasMatch(emailController.text)) {
-                         setState(() {
-                           validEmail = true;
-                         });
-                         emailNode.requestFocus();
-                         print('invalid email id');
-                       }
-                      else if(phoneController.text.isEmpty){
+                      if(nameController.text.isEmpty){
+                        setState(() {
+                          name = true;
+                        });
+                        nameNode.requestFocus();
+                      }
+                      else if(emailController.text.isEmpty){
+                        setState(() {
+                          email = true;
+                        });
+                        emailNode.requestFocus();
+                      }
+                      else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(emailController.text)) {
+                        setState(() {
+                          validEmail = true;
+                        });
+                        emailNode.requestFocus();
+                        print('invalid email id');
+                      }
+                      else if(phoneController.text.isEmpty) {
                         setState(() {
                           phone = true;
-                         // phoneNode.hasFocus;
                         });
                         phoneNode.requestFocus();
-                        print('Emptey phone number');
+                      }
+                      else if(!RegExp(r'(^(?:[+0]9)?[0-9]{10,12}$)')   //max length 8
+                          .hasMatch(phoneController.text)){
+                         setState(() {
+                              phone2 = true;
+                         });
+                         phoneNode.requestFocus();
+                         print('invalid pass');
                       }
                       else if(passwordController.text.isEmpty){
                         setState(() {
                           pass = true;
                         });
                         passwordNode.requestFocus();
-                        print('Emptey password');
                       }
-                      else if(passwordController.text.isNotEmpty){
-                         if(!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                             .hasMatch(passwordController.text)) {
-                           setState(() {
-                             pass2 = true;
-                           });
-                           passwordNode.requestFocus();
-                           print('invalid password');
-                         }
+                      else if(!RegExp(r'^.{8,}$')   //max length 8
+                          .hasMatch(passwordController.text)) {
+                        setState(() {
+                          pass2 = true;
+                        });
+                        passwordNode.requestFocus();
+                        print('invalid password');
                       }
-                      else if(confirmPassController.text.isNotEmpty){
-                        print('confirmpass is not empty');
-                        if(confirmPassController.text == passwordController.text){
-                         setState(() {
-                           confPass = true;
-                         });
-                         confirmNode.requestFocus();
-                         print('password is matching');
-                       }else {
+                      else if(confirmPassController.text.isEmpty) {
+                        setState(() {
+                          confPass = true;
+                        });
+                        confirmNode.requestFocus();
+                        print('confirm pass empty');
+                      }
+                      else if (confirmPassController.text != passwordController.text){
+                        setState(() {
+
+                          confPass = true;
+
+                        });
+                        confirmNode.requestFocus();
+                        print('password is not matching');
+                      }
+                      else {
+                        if(confirmPassController.text == passwordController.text && isChecked){
                           setState(() {
                             confPass = false;
+                            name = false;
+                            email = false;
+                            validEmail = false;
+                            phone = false;
+                            phone2 = false;
+                            pass = false;
+                            pass2 = false;
                           });
-                          print('password is not matching');
+                          confirmNode.requestFocus();
+                          print('checkbox selected: $isChecked');
+                          print('password is matching');
+                          print('registerd sucessfully');
                         }
-                       }
-                      else {
-                        setState(() {
-                          name = false;
-                          email = false;
-                          validEmail = false;
-                          phone = false;
-                          pass = false;
-                          pass2 = false;
-                          confPass = false;
-                          print('register succesfully');
-                        });
+                        else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Select CheckBox',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+                              ),
+                              ),
+                              backgroundColor: Colors.red,
+                              duration: Duration(seconds: 3),
+
+                            ),
+                          );
+                          print('CheckBox did not select: $isChecked');
+                        }
+
                       }
 
                     },
@@ -468,91 +485,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-//appbar ki height mobile ki adhi screen ke baraber kaise kare
-
-
-  getNane() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 52,
-      margin: EdgeInsets.only(top: 5, left: 24, right: 24),
-
-      child:  TextFormField(
-        controller: nameController,
-        autofocus: true,
-        onChanged: (value) {
-         if(value.length==0){
-            FocusScope.of(context).hasFocus;
-          }
-        },
-        decoration: InputDecoration(
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
-                width: 1,
-                color: Color(0xFFD8DADC),
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
-                width: 1,
-                color: Color(0xFFD8DADC),// Set the desired color here
-              ),
-            ),
-            hintText: "Full Name",
-            hintStyle: TextStyle(
-              color: Color(0xFFA7A9B7),
-              fontSize: 14,
-              fontFamily: 'Montserrat SemiBold',
-              fontWeight: FontWeight.w400,
-              height: 1.0,
-            ),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
-              width: 1,
-                color: Color(0xFFD8DADC),
-            ),
-            ),
-            prefixIcon: Container(
-              margin: EdgeInsets.only(right: 10,left: 10),
-              child: Image(
-                image: AssetImage(Assets.user),
-                width: 4,
-                height: 4,
-              ),
-            ),
-            errorStyle: TextStyle(color: Colors.redAccent,fontSize: 12),
-            prefixIconConstraints: BoxConstraints(
-              minWidth: 44,
-              maxHeight: 44,
-              minHeight: 44,
-              maxWidth: 44,
-            ),
-            isDense: true,
-           // contentPadding: EdgeInsets.all(18)
-        ),
-        cursorColor: Color(0xFFA7A9B7),
-        validator: (val){
-          if(val!.isEmpty){
-            return "Required";
-          }else{
-            return null;
-          }
-        },
-        style: TextStyle(
-          color: Colors.black54,
-          fontSize: 14,
-          fontFamily: 'Montserrat SemiBold',
-          fontWeight: FontWeight.w400,
-          height: 1.0,
-        ),
       ),
     );
   }
@@ -776,7 +708,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: 1,
-            color: phone ? Colors.red: Color(0xFFD8DADC),
+            color: phoneController.text.isEmpty ? (phone ? Colors.red: Color(0xFFD8DADC)):
+                                     (phone2 ? Colors.red : Color(0xFFD8DADC))
           ),
           borderRadius: BorderRadius.circular(10),
         ),
@@ -797,6 +730,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             onChanged: (text) {
               setState(() {
                 phone= false;
+                phone2 = false;
               });
             },
             decoration: InputDecoration(
@@ -1044,14 +978,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         value: isChecked,
         onChanged: (bool? value) {
           setState(() {
-            //isChecked = value ?? false;
-            isChecked = !isChecked;
-            print('CheckBox Selected');
+            //flutter checkbox condition if selected then tap on button user will login else show error
+            isChecked = value!;
+           // isChecked = !isChecked;
+            print('CheckBox Selected: $isChecked');
           });
         },
       ),
     );
   }
+
 
 
 }

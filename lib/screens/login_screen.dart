@@ -27,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isSelect = false;
   bool emailError = false;
   bool passError = false;
+  bool pass2Error = false;
   bool validEmail = false;
 
   @override
@@ -37,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
               _appBar(),
-
             Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -95,14 +95,18 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             getEmailField(),
             emailController.text.isEmpty ?  Container(
-              margin: EdgeInsets.only(right: 200),
+              width: MediaQuery.of(context).size.width,
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(left: 25),
               child: Text(emailError ? 'Enter email id': '',style: TextStyle(
                   fontFamily: "Montserrat SemiBold",
                   fontSize: 13,
                   color: Colors.red)),
             ):
             Container(
-              margin: EdgeInsets.only(right: 180),
+              width: MediaQuery.of(context).size.width,
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(left: 25),
               child: Text(
                   validEmail ? 'Enter valid email id': '',style: TextStyle(
                   fontFamily: "Montserrat SemiBold",
@@ -112,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             Container(
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.only(left: 25,top: 15),
+              margin: EdgeInsets.only(left: 25,top: 2),
               child: Text('Password',textAlign: TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
@@ -124,12 +128,20 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             getPasswordField(),
             Container(
-              margin: EdgeInsets.only(right: 200),
-              child: Text(
-                  passError ? 'Enter Password': '',style: TextStyle(
-                  fontFamily: "Montserrat SemiBold",
-                  fontSize: 13,
-                  color: Colors.red)),
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 25),
+                child: passController.text.isEmpty ? Text(
+                    passError ? 'Enter Password': '',style: TextStyle(
+                    fontFamily: "Montserrat SemiBold",
+                    fontSize: 13,
+                    color: Colors.red)) :
+                Text(
+                    pass2Error ? 'Password length should be at leat 8': '',style: TextStyle(
+                    fontFamily: "Montserrat SemiBold",
+                    fontSize: 13,
+                    color: Colors.red))
+
             ),
 
 
@@ -172,6 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: EdgeInsets.only(top: 20),
               child: CommonButton(
                   onTap: (){
+
                    if(emailController.text.isEmpty){
                          setState(() {
                            emailError = true;
@@ -180,10 +193,10 @@ class _LoginScreenState extends State<LoginScreen> {
                        setState(() {
                        passError = true;
                      });
-                    // passwordNode.requestFocus();
                    }
                    emailNode.requestFocus();
-                   }else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                   }
+                   else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                        .hasMatch(emailController.text)){
                        setState(() {
                          validEmail = true;
@@ -195,12 +208,20 @@ class _LoginScreenState extends State<LoginScreen> {
                      });
                      passwordNode.requestFocus();
                    }
+                   else if(!RegExp(r'^.{8,}$').hasMatch(passController.text)) {
+                       setState(() {
+                         pass2Error = true;
+                       });
+                       print('at least 8 length');
+                   }
                    else {
                      setState(() {
                        emailError = false;
                        passError = false;
                      });
+                     print('succesfully login');
                    }
+
               },
                   title: 'Login'),
             ),
@@ -389,7 +410,8 @@ class _LoginScreenState extends State<LoginScreen> {
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: 1,
-            color: passError ? Colors.red: Color(0xFFD8DADC),
+            color: passController.text.isEmpty ? (passError ? Colors.red: Color(0xFFD8DADC)) :
+                                                (pass2Error ? Colors.red: Color(0xFFD8DADC) )
           ),
           borderRadius: BorderRadius.circular(10),
         ),
@@ -410,6 +432,7 @@ class _LoginScreenState extends State<LoginScreen> {
             onChanged: (text) {
               setState(() {
                  passError = false;
+                 pass2Error = false;
               });
             },
             decoration: InputDecoration(
