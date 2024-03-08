@@ -28,5 +28,10 @@ class Assets {
   static const String oppline = "assets/images/oppline.png";
   static const String google = "assets/images/google.png";
   static const String facebook = "assets/images/facebook.png";
+  static const String bockground = "assets/images/bockground.png";
+  static const String grid1 = "assets/images/grid1.png";
+  static const String firstImage = "assets/images/firstImage.png";
+  static const String secondImage = "assets/images/secondImage.png";
+  static const String thirdImage = "assets/images/thirdImage.png";
 
 }

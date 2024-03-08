@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:printlific/resources/assets.dart';
 import 'package:printlific/screens/login_screen.dart';
+import 'package:printlific/screens/sub_categories_screen.dart';
 import 'package:printlific/wigets/common_button.dart';
 
 class CreateAccountScreen extends StatefulWidget {
@@ -425,6 +426,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           print('checkbox selected: $isChecked');
                           print('password is matching');
                           print('registerd sucessfully');
+
                         }
                         else {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -512,14 +514,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             InkWell(
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
+              radius: 100,
               onTap: () {
                 Navigator.pop(context);
               },
               child: Container(
-                width: 32,
-                height: 32,
-                margin: EdgeInsets.only(top: 35,left: 15),
-                padding: EdgeInsets.only(left: 8, right: 8),
+                width: 18,
+                height: 18,
+                margin: EdgeInsets.only(top: 50,left: 10),
                 child: Image(
                   image: AssetImage(Assets.backIcon),
                   color: Colors.black,
@@ -529,7 +531,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
 
             Container(
-              margin: EdgeInsets.only(top: 100,left: 80,bottom: 0),
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(top: 100),
               child: Image(
                 image: AssetImage(Assets.loginLogo),
                 alignment: Alignment.center,
