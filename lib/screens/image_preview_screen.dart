@@ -51,165 +51,175 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                   strokeWidth: 1,
                   color: Color(0xff1F4CE0),
                   child: Container(
-                    margin: EdgeInsets.only(top: 20),
+                   // margin: EdgeInsets.only(top: 20),
                     child:
                     //getImages(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                  children: [
-                                    Container(
-                                      height: 152,
-                                      width: 130,
-                                      margin: EdgeInsets.only(top: 25, left: 0),
-                                      decoration: ShapeDecoration(
-                                          image: DecorationImage(image: AssetImage(Assets.print),fit:  BoxFit.cover),
-                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.only(top: 20,),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 20,right: 20,left: 20),
+                            width: double.infinity,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Stack(
+                                    children: [
+                                      Container(
+                                        height: 152,
+                                        width: 130,
+                                        margin: EdgeInsets.only(top: 0, left: 0),
+                                        decoration: ShapeDecoration(
+                                            image: DecorationImage(image: AssetImage(Assets.print),fit:  BoxFit.cover),
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                        ),
                                       ),
-                                    ),
 
-                                     Positioned(
-                                        right: 0,
-                                        top: 20,
-                                        child: InkWell(
-                                          onTap: (){
-                                            Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen()));
-                                          },
-                                          child: Container(
-                                            height: 30,
-                                            width: 30,
-                                            child: Image(image: AssetImage(Assets.editIcon),
+                                       Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          child: InkWell(
+                                            onTap: (){
+                                              Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen()));
+                                            },
+                                            child: Container(
+                                              height: 30,
+                                              width: 30,
+                                              child: Image(image: AssetImage(Assets.editIcon),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
 
 
-                                  ]
-                              ),
-//how can i show AssetImage(Assets.editIcon),on the topright corner of this AssetImage(Assets.print)
-                              Column(
-                                children: [
-                                  Stack(
+                                    ]
+                                ),
+                      //how can i show AssetImage(Assets.editIcon),on the topright corner of this AssetImage(Assets.print)
+                                Container(
+                                  height: 152,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Container(
-                                        height: 69,
-                                        width: 130,
-                                        margin: EdgeInsets.only(top: 22),
-                                        decoration: ShapeDecoration(
-                                            image: DecorationImage(image: AssetImage(Assets.kkYellow)),
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
-                                        ),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            height: 69,
+                                            width: 130,
+                                            margin: EdgeInsets.only(top: 0),
+                                            decoration: ShapeDecoration(
+                                                image: DecorationImage(image: AssetImage(Assets.kkYellow)),
+                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                            ),
+                                          ),
+
+                                          Positioned(
+                                            right: 0,
+                                            top: 0,
+                                            child: Container(
+                                              height: 30,
+                                              width: 30,
+                                              child: Image(image: AssetImage(Assets.editIcon),
+                                              ),
+                                            ),
+                                          ),
+
+                                        ],
                                       ),
 
-                                      Positioned(
-                                        right: 0,
-                                        top: 18,
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          child: Image(image: AssetImage(Assets.editIcon),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            height: 69,
+                                            width: 130,
+                                            margin: EdgeInsets.only(top: 0),
+                                            decoration: ShapeDecoration(
+                                                image: DecorationImage(image: AssetImage(Assets.thirdImageP)),
+                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                            ),
                                           ),
-                                        ),
-                                      ),
+
+                                          Positioned(
+                                            right: 0,
+                                            top: 0,
+                                            child: Container(
+                                              height: 30,
+                                              width: 30,
+                                              child: Image(image: AssetImage(Assets.editIcon),
+                                              ),
+                                            ),
+                                          ),
+
+                                        ],
+                                      )
 
                                     ],
                                   ),
+                                )
+                              ],
+                            ),
+                          ),
 
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        height: 69,
-                                        width: 130,
-                                        margin: EdgeInsets.only(top: 10),
-                                        decoration: ShapeDecoration(
-                                            image: DecorationImage(image: AssetImage(Assets.thirdImageP)),
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
-                                        ),
-                                      ),
+                          Stack(
+                            children: [
+                              Container(
+                                height: 88,
+                                width: MediaQuery.of(context).size.width,
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: ShapeDecoration(
+                                    image: DecorationImage(image: AssetImage(Assets.fourthP)),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12)
+                                    )
+                                ),
+                              ),
 
-                                      Positioned(
-                                        right: 0,
-                                        top: 2,
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          child: Image(image: AssetImage(Assets.editIcon),
-                                          ),
-                                        ),
-                                      ),
+                              Positioned(
+                                right: 15,
+                                top: 5,
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  child: Image(image: AssetImage(Assets.editIcon),
+                                  ),
+                                ),
+                              ),
 
-                                    ],
-                                  )
-
-                                ],
-                              )
                             ],
                           ),
-                        ),
 
-                        Stack(
-                          children: [
-                            Container(
-                              height: 88,
-                              width: MediaQuery.of(context).size.width,
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: ShapeDecoration(
-                                  image: DecorationImage(image: AssetImage(Assets.fourthP)),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12)
-                                  )
-                              ),
-                            ),
-
-                            Positioned(
-                              right: 15,
-                              top: 5,
-                              child: Container(
-                                height: 30,
-                                width: 30,
-                                child: Image(image: AssetImage(Assets.editIcon),
+                          Stack(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                height: 88,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: ShapeDecoration(
+                                    image: DecorationImage(image: AssetImage(Assets.fiv)),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12)
+                                    )
                                 ),
                               ),
-                            ),
 
-                          ],
-                        ),
-
-                        Stack(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              height: 88,
-                              width: MediaQuery.of(context).size.width,
-                              decoration: ShapeDecoration(
-                                  image: DecorationImage(image: AssetImage(Assets.fiv)),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12)
-                                  )
-                              ),
-                            ),
-
-                            Positioned(
-                              right: 15,
-                              top: 5,
-                              child: Container(
-                                height: 30,
-                                width: 30,
-                                child: Image(image: AssetImage(Assets.editIcon),
+                              Positioned(
+                                right: 15,
+                                top: 5,
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  child: Image(image: AssetImage(Assets.editIcon),
+                                  ),
                                 ),
                               ),
-                            ),
 
-                          ],
-                        ),
+                            ],
+                          ),
 
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

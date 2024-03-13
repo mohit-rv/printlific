@@ -122,255 +122,267 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
                       ),
 
                       Container(
-                        margin: EdgeInsets.only(top: 0,right: 8,left: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
                           children: [
-                            InkWell(
-                              onTap: (){
-                                _pickImage();
-                              },
-                              child: selectedImage == null ?  Container(
-                                height: 158,
-                                width: 130,
-                                margin: EdgeInsets.only(top: 10),
-                                decoration: ShapeDecoration(
-                                    image: DecorationImage(image: AssetImage(Assets.firstUpload),fit:  BoxFit.cover),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
-                                ),
-                                // child: Image(image: AssetImage(Assets.firstUpload)),
-                              ) :
-                              Stack(
+                            Container(
+                              margin: EdgeInsets.only(top: 0,right: 19,left: 19),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Card(
-                                    elevation: 4,
-                                    margin: EdgeInsets.only(top: 0,right: 0,left: 10),
-                                    child: Container(
-                                      height: 150,
-                                      width: 124,
+                                  InkWell(
+                                    onTap: (){
+                                      _pickImage();
+                                    },
+                                    child: selectedImage == null ?  Container(
+                                      height: 155,
+                                      width: 130,
+                                      margin: EdgeInsets.only(top: 9,left: 4),
                                       decoration: ShapeDecoration(
-                                          image: DecorationImage(image: FileImage(selectedImage!),fit:  BoxFit.cover),
+                                          image: DecorationImage(image: AssetImage(Assets.firstUpload),fit:  BoxFit.cover),
                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
                                       ),
                                       // child: Image(image: AssetImage(Assets.firstUpload)),
-                                    ),
-                                  ),
-
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        margin: EdgeInsets.only(left: 115,bottom: 0),
-                                        height: 25,
-                                        width: 25,
-                                        child: Image(image: AssetImage(Assets.editIcon),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 0,top: 10,right: 0),
-                              child: Column(
-                                children: [
-
-                                  InkWell(
-                                      onTap: (){
-                                        _pickSecondImage();
-                                      },
-                                      child: selectedImage2==null ?
-                                      Container(
-                                        height: 72,
-                                        width:  130,
-                                        margin: EdgeInsets.only(left: 8,right: 4),
-                                        decoration: ShapeDecoration(
-                                            image:
-                                            DecorationImage(image: AssetImage(Assets.secondUpload),fit:  BoxFit.cover),
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
-                                        ),
-                                      ):
-                                      Stack(
-                                        children: [
-                                          Card(
-                                            elevation: 4,
-                                            margin: EdgeInsets.only(top: 0,right: 4,left: 8,bottom: 0),
-                                            child: Container(
-                                              height: 69,
-                                              width:  115,
-                                              decoration: ShapeDecoration(
-                                                  image:
-                                                  DecorationImage(image: FileImage(selectedImage2!),fit:  BoxFit.cover),
-                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
-                                              ),
-                                              // child: Image(image: AssetImage(Assets.secondUpload)),
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: [
-                                              Container(
-                                                margin: EdgeInsets.only(left: 105,),
-                                                height: 25,
-                                                width: 25,
-                                                child: Image(image: AssetImage(Assets.editIcon),
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                  ),
-
-
-                                  InkWell(
-                                    onTap: (){
-                                      _pickThirdImage();
-                                    },
-                                    child: selectedImage3==null ?
-                                    Container(
-                                      height: 72,
-                                      width:  130,
-                                      margin: EdgeInsets.only(left: 8,right: 4,top: 10),
-                                      decoration: ShapeDecoration(
-                                          image:
-                                          DecorationImage(image: AssetImage(Assets.secondUpload),fit:  BoxFit.contain),
-                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
-                                      ),
-                                      // child: Image(image: AssetImage(Assets.secondUpload)),
-                                    ):
+                                    ) :
                                     Stack(
                                       children: [
                                         Card(
                                           elevation: 4,
-                                          margin: EdgeInsets.only(top: 10,right: 4,left: 8,bottom: 10),
+                                          margin: EdgeInsets.only(top: 0,right: 0,left: 7),
                                           child: Container(
-                                            height: 69,
-                                            width:  115,
+                                            height: 150,
+                                            width: 124,
                                             decoration: ShapeDecoration(
-                                                image:
-                                                DecorationImage(image: FileImage(selectedImage3!),fit:  BoxFit.cover),
+                                                image: DecorationImage(image: FileImage(selectedImage!),fit:  BoxFit.cover),
                                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
                                             ),
-                                            // child: Image(image: AssetImage(Assets.secondUpload)),
+                                            // child: Image(image: AssetImage(Assets.firstUpload)),
                                           ),
                                         ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(left: 110,top: 7),
-                                              height: 25,
-                                              width: 25,
-                                              child: Image(image: AssetImage(Assets.editIcon),
-                                              ),
-                                            ),
-                                          ],
-                                        )
+
+                                        // Row(
+                                        //   mainAxisAlignment: MainAxisAlignment.end,
+                                        //   children: [
+                                        //     Container(
+                                        //       margin: EdgeInsets.only(left: 115,bottom: 0),
+                                        //       height: 25,
+                                        //       width: 25,
+                                        //       child: Image(image: AssetImage(Assets.editIcon),
+                                        //       ),
+                                        //     ),
+                                        //   ],
+                                        // )
                                       ],
                                     ),
 
                                   ),
+
+                                  Container(
+                                    height: 155,
+                                    //width: 130,
+                                    margin: EdgeInsets.only(left: 0,top:9,right: 0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+
+                                        InkWell(
+                                            onTap: (){
+                                              _pickSecondImage();
+                                            },
+                                            child: selectedImage2==null ?
+                                            Container(
+                                              height: 72,
+                                              width:  130,
+                                              margin: EdgeInsets.only(left: 0,right: 0,top: 0),
+                                              decoration: ShapeDecoration(
+                                                  image:
+                                                  DecorationImage(image: AssetImage(Assets.secondUpload),fit:  BoxFit.cover),
+                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                              ),
+                                            ):
+                                            Stack(
+                                              children: [
+                                                Card(
+                                                  elevation: 4,
+                                                  margin: EdgeInsets.only(top: 0,right: 0,left: 0,bottom: 0),
+                                                  child: Container(
+                                                    height: 69,
+                                                    width:  115,
+                                                    decoration: ShapeDecoration(
+                                                        image:
+                                                        DecorationImage(image: FileImage(selectedImage2!),fit:  BoxFit.cover),
+                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                                    ),
+                                                    // child: Image(image: AssetImage(Assets.secondUpload)),
+                                                  ),
+                                                ),
+                                                // Row(
+                                                //   mainAxisAlignment: MainAxisAlignment.end,
+                                                //   children: [
+                                                //     Container(
+                                                //       margin: EdgeInsets.only(left: 105,),
+                                                //       height: 25,
+                                                //       width: 25,
+                                                //       child: Image(image: AssetImage(Assets.editIcon),
+                                                //       ),
+                                                //     ),
+                                                //   ],
+                                                // )
+                                              ],
+                                            )
+                                        ),
+
+
+                                        InkWell(
+                                          onTap: (){
+                                            _pickThirdImage();
+                                          },
+                                          child: selectedImage3==null ?
+                                          Container(
+                                            height: 72,
+                                            width:  130,
+                                            margin: EdgeInsets.only(left: 0,right: 0,top: 0),
+                                            decoration: ShapeDecoration(
+                                                image:
+                                                DecorationImage(image: AssetImage(Assets.secondUpload),fit:  BoxFit.contain),
+                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                            ),
+                                            // child: Image(image: AssetImage(Assets.secondUpload)),
+                                          ):
+                                          Stack(
+                                            children: [
+                                              Card(
+                                                elevation: 4,
+                                                //  margin: EdgeInsets.only(top: 5,right: 4,left: 8,bottom: 0),
+                                                child: Container(
+                                                  height: 69,
+                                                  width:  115,
+                                                  decoration: ShapeDecoration(
+                                                      image:
+                                                      DecorationImage(image: FileImage(selectedImage3!),fit:  BoxFit.cover),
+                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+                                                  ),
+                                                  // child: Image(image: AssetImage(Assets.secondUpload)),
+                                                ),
+                                              ),
+                                              // Row(
+                                              //   mainAxisAlignment: MainAxisAlignment.end,
+                                              //   children: [
+                                              //     Container(
+                                              //       margin: EdgeInsets.only(left: 110,top: 7),
+                                              //       height: 25,
+                                              //       width: 25,
+                                              //       child: Image(image: AssetImage(Assets.editIcon),
+                                              //       ),
+                                              //     ),
+                                              //   ],
+                                              // )
+                                            ],
+                                          ),
+
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+
+
                                 ],
                               ),
                             ),
 
+                            InkWell(
+                                onTap: () {
+                                  _pickFourthImage();
+                                },
+                                child: selectedImage4==null ? Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  height: 92,
+                                  width:  MediaQuery.of(context).size.width,
+                                  child: Image(image: AssetImage(Assets.thirdUpload),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ) :
+                                Stack(
+                                  children: [
+                                    Card(
+                                      elevation: 4,
+                                      margin: EdgeInsets.only(top: 10,right: 24,left: 24),
+                                      child: Container(
+                                        height: 78,
+                                        width:  MediaQuery.of(context).size.width,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(image: FileImage(selectedImage4!),fit: BoxFit.cover),
+                                          borderRadius: BorderRadius.circular(12),
+                                        ),
+                                      ),
+                                    ),
+                                    // Row(
+                                    //   mainAxisAlignment: MainAxisAlignment.end,
+                                    //   children: [
+                                    //     Container(
+                                    //       margin: EdgeInsets.only(right: 15,top: 0),
+                                    //       height: 25,
+                                    //       width: 25,
+                                    //       child: Image(image: AssetImage(Assets.editIcon),
+                                    //       ),
+                                    //     ),
+                                    //   ],
+                                    // )
 
 
+                                  ],
+                                )
+                            ),
+
+                            InkWell(
+                                onTap: () {
+                                  _pickFifthImage();
+                                },
+                                child: selectedImage5==null ? Container(
+                                  margin: EdgeInsets.only(top: 12),
+                                  height: 92,
+                                  width:  MediaQuery.of(context).size.width,
+                                  child: Image(image: AssetImage(Assets.thirdUpload),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ) :
+                                Stack(
+                                  children: [
+                                    Card(
+                                      elevation: 4,
+                                      margin: EdgeInsets.only(top: 12,right: 24,left: 24),
+                                      child: Container(
+                                        height: 78,
+                                        width:  MediaQuery.of(context).size.width,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(image: FileImage(selectedImage5!),fit: BoxFit.cover),
+                                          borderRadius: BorderRadius.circular(12),
+                                        ),
+                                      ),
+                                    ),
+                                    // Row(
+                                    //   mainAxisAlignment: MainAxisAlignment.end,
+                                    //   children: [
+                                    //     Container(
+                                    //       margin: EdgeInsets.only(right: 15,top: 5),
+                                    //       height: 25,
+                                    //       width: 25,
+                                    //       child: Image(image: AssetImage(Assets.editIcon),
+                                    //       ),
+                                    //     ),
+                                    //   ],
+                                    // )
+
+
+                                  ],
+                                )
+                            ),
                           ],
                         ),
-                      ),
-
-                      InkWell(
-                          onTap: () {
-                            _pickFourthImage();
-                          },
-                          child: selectedImage4==null ? Container(
-                            margin: EdgeInsets.only(top: 5),
-                            height: 92,
-                            width:  MediaQuery.of(context).size.width,
-                            child: Image(image: AssetImage(Assets.thirdUpload),
-                              fit: BoxFit.contain,
-                            ),
-                          ) :
-                          Stack(
-                            children: [
-                              Card(
-                                elevation: 4,
-                                margin: EdgeInsets.only(top: 5,right: 24,left: 24),
-                                child: Container(
-                                  height: 78,
-                                  width:  MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(image: FileImage(selectedImage4!),fit: BoxFit.cover),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(right: 15,top: 0),
-                                    height: 25,
-                                    width: 25,
-                                    child: Image(image: AssetImage(Assets.editIcon),
-                                    ),
-                                  ),
-                                ],
-                              )
+                      )
 
 
-                            ],
-                          )
-                      ),
-
-                      InkWell(
-                          onTap: () {
-                            _pickFifthImage();
-                          },
-                          child: selectedImage5==null ? Container(
-                            margin: EdgeInsets.only(top: 12),
-                            height: 92,
-                            width:  MediaQuery.of(context).size.width,
-                            child: Image(image: AssetImage(Assets.thirdUpload),
-                              fit: BoxFit.contain,
-                            ),
-                          ) :
-                          Stack(
-                            children: [
-                              Card(
-                                elevation: 4,
-                                margin: EdgeInsets.only(top: 12,right: 24,left: 24),
-                                child: Container(
-                                  height: 78,
-                                  width:  MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(image: FileImage(selectedImage5!),fit: BoxFit.cover),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(right: 15,top: 5),
-                                    height: 25,
-                                    width: 25,
-                                    child: Image(image: AssetImage(Assets.editIcon),
-                                    ),
-                                  ),
-                                ],
-                              )
-
-
-                            ],
-                          )
-                      ),
 
                     ],
                   ),
