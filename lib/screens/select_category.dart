@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:printlific/resources/assets.dart';
 import 'package:printlific/screens/sub_categories_screen.dart';
 import 'package:printlific/wigets/common_appbar.dart';
 import 'package:printlific/wigets/common_button.dart';
+import 'package:printlific/wigets/common_row.dart';
 
 class SelectCategoryScreen extends StatefulWidget {
   const SelectCategoryScreen({super.key});
@@ -37,28 +39,38 @@ class _SelectCategoryScreenState extends State<SelectCategoryScreen> {
       }, title: 'Next'),
       body: Stack(
         children: [
-          CommonAppbar(title: 'Select  categories'),
+          CommonAppbar(title: '',),
 
-          Container(
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height*0.079,
-                left: 20,
-                right: 20
-            ),
-            child: GridView.builder(
-             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 170,  //width of gridview in flutter
-              mainAxisExtent: 224,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 15,
-              childAspectRatio: 0.5
-            ),
-                itemCount: items.length,
-                itemBuilder: (context, index){
-              return getGridItems(index);
-            }),
-          ),
+          Column(
+            children: [
+             CommonRow(title: 'Select Category'),
+
+              Expanded(
+                child: Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(
+                     top: MediaQuery.of(context).size.height*0.000000000001,
+                      left: 20,
+                      right: 20
+                  ),
+                  child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 170,  //width of gridview in flutter
+                          mainAxisExtent: 224,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 15,
+                          childAspectRatio: 0.5
+                      ),
+                      itemCount: items.length,
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index){
+                        return getGridItems(index);
+                      }),
+                ),
+              ),
+            ],
+          )
+
 
         ],
       ),

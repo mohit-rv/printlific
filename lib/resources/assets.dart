@@ -33,5 +33,24 @@ class Assets {
   static const String firstImage = "assets/images/firstImage.png";
   static const String secondImage = "assets/images/secondImage.png";
   static const String thirdImage = "assets/images/thirdImage.png";
+  static const String firstUpload = "assets/images/firstUpload.png";
+  static const String secondUpload = "assets/images/secondUpload.png";
+  static const String thirdUpload = "assets/images/thirdUpload.png";
+  static const String editIcon = "assets/images/editIcon.png";
+  static const String print = "assets/images/print.png";
+  static const String kkYellow = "assets/images/kkYellow.png";
+  static const String thirdImageP = "assets/images/thirdImageP.png";
+  static const String fourthP = "assets/images/fourthP.png";
+  static const String fiv = "assets/images/fiv.png";
+  static const String gridfirst = "assets/images/gridfirst.png";
+  static const String gridSecond = "assets/images/gridSecond.png";
+  static const String gridThird = "assets/images/gridThird.png";
+  static const String editImage = "assets/images/editImage.png";
+  static const String size = "assets/images/size.png";
+  static const String Ellipse = "assets/images/Ellipse.png";
+  static const String Subtract = "assets/images/Subtract.png";
+  static const String rotate = "assets/images/rotate.png";
+  static const String Rectangle = "assets/images/Rectangle.png";
+  static const String StandUpRectangle = "assets/images/StandUpRectangle.png";
 
 }

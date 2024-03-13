@@ -43,6 +43,12 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   otp_pin_field: ^1.2.2
   card_slider: ^1.0.5
+  group_button: ^5.3.4
+  dotted_border: ^2.1.0
+  image_picker: ^1.0.7
+  path_provider: ^2.1.2
+  crop_image: ^1.0.12
+  image_cropper: ^5.0.1
 
 dev_dependencies:
   flutter_test:

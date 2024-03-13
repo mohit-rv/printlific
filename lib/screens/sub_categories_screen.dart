@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:printlific/screens/Select_Size_screen.dart';
 import 'package:printlific/wigets/common_appbar.dart';
 import 'package:printlific/wigets/common_button.dart';
+import 'package:printlific/wigets/common_row.dart';
 
 import '../resources/assets.dart';
 
@@ -40,16 +42,28 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
       body: Stack(
         children: [
           CommonAppbar(title: 'Select sub categories'),
-          Container(
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height*0.079
-            ),
-            child: ListView.builder(
-              itemCount: listItems.length,
-                itemBuilder: (context, index){
-              return getListItems(index);
-            }),
-          ),
+
+          Column(
+            children: [
+              CommonRow(title: 'Select sub categories'),
+
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height*0.0001
+                  ),
+                  child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                      itemCount: listItems.length,
+                      itemBuilder: (context, index){
+                        return getListItems(index);
+                      }),
+                ),
+              ),
+            ],
+          )
+
+
 
         ],
       ),
