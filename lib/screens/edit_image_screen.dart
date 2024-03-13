@@ -16,6 +16,9 @@ class EditImageScreen extends StatefulWidget {
 }
 
 class _EditImageScreenState extends State<EditImageScreen> {
+
+  final image = Image(image: AssetImage(Assets.editImage,),height: 433,);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +94,6 @@ class _EditImageScreenState extends State<EditImageScreen> {
                   margin: EdgeInsets.only(top: 28,left: 10,right: 0),
                   child: Column(
                     children: [
-
                       InkWell(
                         onTap: (){
 
@@ -266,43 +268,11 @@ class _EditImageScreenState extends State<EditImageScreen> {
     );
   }
 
-  // Future<void> _cropImage() async {
-  //   if (_pickedFile != null) {
-  //     final croppedFile = await ImageCropper().cropImage(
-  //       sourcePath: _pickedFile!.path,
-  //       compressFormat: ImageCompressFormat.jpg,
-  //       compressQuality: 100,
-  //       uiSettings: [
-  //         AndroidUiSettings(
-  //             // toolbarTitle: 'Cropper',
-  //             // toolbarColor: Colors.deepOrange,
-  //             // toolbarWidgetColor: Colors.white,
-  //             initAspectRatio: CropAspectRatioPreset.original,
-  //             lockAspectRatio: false),
-  //         IOSUiSettings(
-  //           title: 'Cropper',
-  //         ),
-  //         WebUiSettings(
-  //           context: context,
-  //           presentStyle: CropperPresentStyle.dialog,
-  //           boundary: const CroppieBoundary(
-  //             width: 520,
-  //             height: 520,
-  //           ),
-  //           viewPort:
-  //           const CroppieViewPort(width: 480, height: 480, type: 'circle'),
-  //           enableExif: true,
-  //           enableZoom: true,
-  //           showZoomer: true,
-  //         ),
-  //       ],
-  //     );
-  //     if (croppedFile != null) {
-  //       setState(() {
-  //         _croppedFile = croppedFile;
-  //       });
-  //     }
-  //   }
-  // }
+  getCroppBox() {
+    return Container(
+        //flutter code of
+
+    );
+  }
 
 }

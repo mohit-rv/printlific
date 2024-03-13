@@ -52,5 +52,6 @@ class Assets {
   static const String rotate = "assets/images/rotate.png";
   static const String Rectangle = "assets/images/Rectangle.png";
   static const String StandUpRectangle = "assets/images/StandUpRectangle.png";
+  static const String backImage = "assets/images/backImage.png";
 
 }

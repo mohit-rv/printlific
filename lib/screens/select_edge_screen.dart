@@ -75,6 +75,7 @@ class _SelectEdgeScreenState extends State<SelectEdgeScreen> {
         return Container(
           padding: EdgeInsets.all(5),
           decoration: ShapeDecoration(
+            color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(2),
               side: BorderSide(color: Colors.black12,width: 1)
@@ -86,11 +87,12 @@ class _SelectEdgeScreenState extends State<SelectEdgeScreen> {
                 width: 151,height: 81,
                   child: Image(image: AssetImage(itemList[index]['image'].toString(),))),
               Container(
+                width: 104,height: 40,
                child: Text(itemList[index]['title'].toString(),textAlign: TextAlign.center,
                style: TextStyle(
                  fontWeight: FontWeight.w600,
                  fontSize: 13,
-                 fontFamily: 'Montserrat Bold',
+                 fontFamily: 'Montserrat SemiBold',
                  color: Colors.black,
                  //letterSpacing: 0.9,
                ),
