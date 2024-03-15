@@ -184,52 +184,52 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               margin: EdgeInsets.only(top: 20),
               child: CommonButton(
-              //     onTap: (){
-              //
-              //      if(emailController.text.isEmpty){
-              //            setState(() {
-              //              emailError = true;
-              //            });
-              //         if(passController.text.isEmpty){
-              //          setState(() {
-              //          passError = true;
-              //        });
-              //      }
-              //      emailNode.requestFocus();
-              //      }
-              //      else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-              //          .hasMatch(emailController.text)){
-              //          setState(() {
-              //            validEmail = true;
-              //          });
-              //      }
-              //      else if(passController.text.isEmpty){
-              //        setState(() {
-              //          passError = true;
-              //        });
-              //        passwordNode.requestFocus();
-              //      }
-              //      else if(!RegExp(r'^.{8,}$').hasMatch(passController.text)) {
-              //          setState(() {
-              //            pass2Error = true;
-              //          });
-              //          print('at least 8 length');
-              //      }
-              //      else {
-              //        setState(() {
-              //          emailError = false;
-              //          passError = false;
-              //        });
-              //        Navigator.of(context).push(CupertinoPageRoute(builder: (context) => SelectCategoryScreen()));
-              //        print('succesfully login');
-              //      }
-              //
-              // },
+                  onTap: (){
+
+                   if(emailController.text.isEmpty){
+                         setState(() {
+                           emailError = true;
+                         });
+                      if(passController.text.isEmpty){
+                       setState(() {
+                       passError = true;
+                     });
+                   }
+                   emailNode.requestFocus();
+                   }
+                   else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                       .hasMatch(emailController.text)){
+                       setState(() {
+                         validEmail = true;
+                       });
+                   }
+                   else if(passController.text.isEmpty){
+                     setState(() {
+                       passError = true;
+                     });
+                     passwordNode.requestFocus();
+                   }
+                   else if(!RegExp(r'^.{8,}$').hasMatch(passController.text)) {
+                       setState(() {
+                         pass2Error = true;
+                       });
+                       print('at least 8 length');
+                   }
+                   else {
+                     setState(() {
+                       emailError = false;
+                       passError = false;
+                     });
+                     Navigator.of(context).push(CupertinoPageRoute(builder: (context) => SelectCategoryScreen()));
+                     print('succesfully login');
+                   }
+
+              },
 
 
-                onTap: (){
-                  Navigator.of(context).push(CupertinoPageRoute(builder: (context) => SelectCategoryScreen()));
-                },
+                // onTap: (){
+                //   Navigator.of(context).push(CupertinoPageRoute(builder: (context) => SelectCategoryScreen()));
+                // },
                   title: 'Login'),
             ),
 

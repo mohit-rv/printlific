@@ -50,11 +50,11 @@ class _SelectEdgeScreenState extends State<SelectEdgeScreen> {
                   child: GridView.builder(
                     padding: EdgeInsets.zero,
                     itemCount: itemList.length,
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 170,
-                        mainAxisExtent: 195,
-                        crossAxisSpacing: 15,
-                        mainAxisSpacing: 20
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisExtent: 200,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 15
                       ),
                       itemBuilder: (context, index){
                         return getGridItems(index);
@@ -99,6 +99,7 @@ class _SelectEdgeScreenState extends State<SelectEdgeScreen> {
                ),
               ),
               Container(
+                margin: EdgeInsets.only(top: 5),
                 child: Text(itemList[index]['stitle'].toString(),textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -106,12 +107,13 @@ class _SelectEdgeScreenState extends State<SelectEdgeScreen> {
                     fontFamily: 'Montserrat Regular',
                     color: HexColor('#7B7B7B'),
                     letterSpacing: 0.03,
-                    height: 2
+                    height: 1.5
                   ),
                 ),
               ),
 
               Container(
+                alignment: Alignment.bottomCenter,
                 margin: EdgeInsets.only(top: 10),
                 child: Text(itemList[index]['price'].toString(),
                   style: TextStyle(
@@ -127,10 +129,10 @@ class _SelectEdgeScreenState extends State<SelectEdgeScreen> {
                 ),
               ),
 
-
             ],
           ),
         );
   }
+
 
 }

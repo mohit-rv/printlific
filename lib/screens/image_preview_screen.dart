@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:printlific/resources/assets.dart';
+import 'package:printlific/screens/crop/crop.dart';
 import 'package:printlific/screens/edit_image_screen.dart';
 import 'package:printlific/screens/select_edge_screen.dart';
 import 'package:printlific/wigets/common_appbar.dart';
 import 'package:printlific/wigets/common_button.dart';
 import 'package:printlific/wigets/common_row.dart';
+
+import 'crop/cropper.dart';
 
 class ImagePreviewScreen extends StatefulWidget {
   const ImagePreviewScreen({super.key});
@@ -83,7 +86,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                           top: 0,
                                           child: InkWell(
                                             onTap: (){
-                                              Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen()));
+                                              Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: AssetImage(Assets.editImage),)));
                                             },
                                             child: Container(
                                               height: 30,
@@ -97,7 +100,6 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
 
                                     ]
                                 ),
-                      //how can i show AssetImage(Assets.editIcon),on the topright corner of this AssetImage(Assets.print)
                                 Container(
                                   height: 152,
                                   child: Column(
@@ -118,10 +120,15 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                           Positioned(
                                             right: 0,
                                             top: 0,
-                                            child: Container(
-                                              height: 30,
-                                              width: 30,
-                                              child: Image(image: AssetImage(Assets.editIcon),
+                                            child: InkWell(
+                                              onTap: (){
+                                                Navigator.of(context).push(CupertinoPageRoute(builder: (context) => MyApp1()));
+                                              },
+                                              child: Container(
+                                                height: 30,
+                                                width: 30,
+                                                child: Image(image: AssetImage(Assets.editIcon),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -144,10 +151,15 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                           Positioned(
                                             right: 0,
                                             top: 0,
-                                            child: Container(
-                                              height: 30,
-                                              width: 30,
-                                              child: Image(image: AssetImage(Assets.editIcon),
+                                            child: InkWell(
+                                              onTap: (){
+                                                Navigator.of(context).push(CupertinoPageRoute(builder: (context) => CroppScreen(title: 'Demo', imageUrl: Assets.thirdImageP)));
+                                              },
+                                              child: Container(
+                                                height: 30,
+                                                width: 30,
+                                                child: Image(image: AssetImage(Assets.editIcon),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -175,14 +187,20 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                     )
                                 ),
                               ),
+//i want to replace datatype of image string XFile how can i do that and changes i will have to do in this program
 
                               Positioned(
                                 right: 15,
                                 top: 5,
-                                child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  child: Image(image: AssetImage(Assets.editIcon),
+                                child: InkWell(
+                                  onTap: (){
+                                    Navigator.of(context).push(CupertinoPageRoute(builder: (context) => HomeScreen2()));
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    child: Image(image: AssetImage(Assets.editIcon),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -231,7 +249,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
       ),
     );
   }
-
+//please suggest a dependency in flutter whose croppper i can customize according to my desigen or need
   getImages(){
     return Column(
       children: [

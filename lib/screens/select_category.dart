@@ -52,13 +52,20 @@ class _SelectCategoryScreenState extends State<SelectCategoryScreen> {
                       right: 20
                   ),
                   child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 170,  //width of gridview in flutter
-                          mainAxisExtent: 224,
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 15,
-                          childAspectRatio: 0.5
-                      ),
+                      // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      //     maxCrossAxisExtent: 170,  //width of gridview in flutter
+                      //     mainAxisExtent: 224,
+                      //     mainAxisSpacing: 20,
+                      //     crossAxisSpacing: 15,
+                      //     childAspectRatio: 0.5
+                      // ),
+
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisExtent: 224,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 15
+                    ),
                       itemCount: items.length,
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index){
@@ -83,7 +90,7 @@ class _SelectCategoryScreenState extends State<SelectCategoryScreen> {
       child: Container(
         child: Column(
           children: [
-            Container(//logic for changing bordercolor on the basis of index value in gridview.builder in flutter
+            Container(
                height: 158,width: 158,
               decoration: ShapeDecoration(
                 color: HexColor('#F4F4F4'),
