@@ -1,3 +1,4 @@
+
 class Assets {
 
   static const String splashImg1_1 = "assets/images/splash1_1.png";
@@ -55,5 +56,20 @@ class Assets {
   static const String backImage = "assets/images/backImage.png";
   static const String cancel = "assets/images/cancel.png";
   static const String right = "assets/images/right.png";
+  static const String doubleArrow = "assets/images/double-arrow.png";
+  static const String splash_back_Image = "assets/images/splash_back_Image.png";
+  static const String Ellipse_16 = "assets/images/Ellipse 16.png";
+  static const String Ellipse_17 = "assets/images/Ellipse 17.png";
+  static const String Frame_33 = "assets/images/Frame_33.png";
+  static const String Ellipse_13 = "assets/images/Ellipse_13.png";
+  static const String Ellipse_12 = "assets/images/Ellipse_12.png";
+  static const String Ellipse_14 = "assets/images/Ellipse_14.png";
+  static const String title_printlific = "assets/images/title_printlific.png";
+  static const String silder_Image = "assets/images/silder_Image.png";
+  static const String Frame = "assets/images/Frame.png";
+  static const String gradient_icon = "assets/images/gradient_icon.png";
+  static const String ColorLine = "assets/images/ColorLine.png";
+  static const String background = "assets/images/background.png";
+  static const String Coframe = "assets/images/Coframe.png";
 
 }

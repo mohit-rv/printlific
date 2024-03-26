@@ -1,17 +1,22 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:printlific/resources/assets.dart';
-import 'package:printlific/screens/crop/crop.dart';
 import 'package:printlific/screens/edit_image_screen.dart';
 import 'package:printlific/screens/select_edge_screen.dart';
 import 'package:printlific/wigets/common_appbar.dart';
 import 'package:printlific/wigets/common_button.dart';
 import 'package:printlific/wigets/common_row.dart';
 
-import 'crop/cropper.dart';
+
 
 class ImagePreviewScreen extends StatefulWidget {
   const ImagePreviewScreen({super.key});
@@ -21,6 +26,61 @@ class ImagePreviewScreen extends StatefulWidget {
 }
 
 class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
+
+  String? image;
+  CroppedFile? _croppedFile;
+
+  @override
+  void initState() {
+    super.initState();
+    // Set default asset image path
+    image = Assets.editImage;
+    print('default image path $image');
+  }
+
+
+  Future<void> _cropImage() async {
+    if (image != null) {
+      print('$image');
+      ByteData data = await rootBundle.load(image!);
+      List<int> bytes = data.buffer.asUint8List();
+      String tempImagePath = (await getTemporaryDirectory()).path + '/temp_image.png';
+
+      await File(tempImagePath).writeAsBytes(bytes);
+
+      CroppedFile? cropped = await ImageCropper().cropImage(
+        sourcePath: tempImagePath,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        compressFormat: ImageCompressFormat.jpg,
+        compressQuality: 100,
+        uiSettings: [
+          AndroidUiSettings(
+            toolbarTitle: 'Crop',
+            cropGridColor: Colors.black,
+            toolbarColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false,
+          ),
+          IOSUiSettings(title: 'Crop'),
+        ],
+      );
+
+      if (cropped != null) {
+        setState(() {
+           _croppedFile = cropped;
+        //  image = File(cropped.path) as String?;
+          print('Image cropped');
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +146,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                           top: 0,
                                           child: InkWell(
                                             onTap: (){
-                                              Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: AssetImage(Assets.editImage),)));
+                                              Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: Assets.print)));
                                             },
                                             child: Container(
                                               height: 30,
@@ -122,7 +182,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                             top: 0,
                                             child: InkWell(
                                               onTap: (){
-                                                Navigator.of(context).push(CupertinoPageRoute(builder: (context) => MyApp1()));
+                                                Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: Assets.editImage)));
                                               },
                                               child: Container(
                                                 height: 30,
@@ -153,7 +213,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                             top: 0,
                                             child: InkWell(
                                               onTap: (){
-                                                Navigator.of(context).push(CupertinoPageRoute(builder: (context) => CroppScreen(title: 'Demo', imageUrl: Assets.thirdImageP)));
+                                                Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: Assets.thirdImageP)));
                                               },
                                               child: Container(
                                                 height: 30,
@@ -187,15 +247,13 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                                     )
                                 ),
                               ),
-//i want to replace datatype of image string XFile how can i do that and changes i will have to do in this program
 
                               Positioned(
                                 right: 15,
                                 top: 5,
                                 child: InkWell(
                                   onTap: (){
-                                    Navigator.of(context).push(CupertinoPageRoute(builder: (context) => HomeScreen2()));
-                                  },
+                                    Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: Assets.thirdImageP)));                                  },
                                   child: Container(
                                     height: 30,
                                     width: 30,
@@ -225,10 +283,15 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                               Positioned(
                                 right: 15,
                                 top: 5,
-                                child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  child: Image(image: AssetImage(Assets.editIcon),
+                                child: InkWell(
+                                  onTap: (){
+                                    Navigator.of(context).push(CupertinoPageRoute(builder: (context) => EditImageScreen(image: Assets.thirdImageP)));
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    child: Image(image: AssetImage(Assets.editIcon),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -282,5 +345,8 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
       ],
     );
   }
+
+
+
 
 }

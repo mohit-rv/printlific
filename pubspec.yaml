@@ -49,6 +49,10 @@ dependencies:
   path_provider: ^2.1.2
   crop_image: ^1.0.12
   image_cropper: ^5.0.1
+  image: ^4.1.7
+  flutter_colorpicker: ^1.0.3
+  flutter_launcher_icons: ^0.13.1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -111,3 +115,9 @@ flutter:
         - asset: assets/fonts/Montserrat-ExtraBold.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_launcher_icons:
+  android: "app_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
