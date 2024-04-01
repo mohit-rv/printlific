@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:printlific/screens/create_account_screen.dart';
+import 'package:printlific/screens/login_screen.dart';
 import 'package:printlific/screens/on_boarding_screen.dart';
 
 import '../resources/assets.dart';
@@ -40,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             appBar(),
             Stack(
               children: [
+
                 Container(
                   margin: EdgeInsets.only(top: 10),
                 //  margin: EdgeInsets.only(),
@@ -49,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     options: CarouselOptions(
                       //height: 380,
                       enlargeCenterPage: true,
-                      viewportFraction: 0.75,
+                      viewportFraction: 0.71,
                       enlargeFactor: 0.1,
                       aspectRatio: 1 / 1,
                       //padEnds: true,
@@ -69,23 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     itemBuilder: (BuildContext context, int index, int realIndex) {
                       return Container(
-                        // decoration: BoxDecoration(
-                        //   boxShadow: [
-                        //     BoxShadow(
-                        //       color: Colors.red.withOpacity(0.5),
-                        //       spreadRadius: 10,
-                        //       blurRadius: 0,
-                        //       offset: Offset(0, -5),
-                        //     ),
-                        //     BoxShadow(
-                        //       color: Colors.grey.withOpacity(0.5),
-                        //       spreadRadius: 20,
-                        //       blurRadius: 7,
-                        //       offset: Offset(3, 0),
-                        //     ),
-                        //   ],
-                        // ),
-                        margin: EdgeInsets.only(top: 0,left: 0,bottom: 10),
+                        margin: EdgeInsets.only(top: 0,left: 0,bottom: 0),
                         child: Image.asset(
                           carouselItems[index],    width: 250,height: 320,
                         //  fit: BoxFit.cover,
@@ -94,55 +81,70 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
-        
+
+
                 Positioned(
-                  left: MediaQuery.of(context).size.width/6, right: MediaQuery.of(context).size.width/6.2,
-                  child: Container(
-                    width: 250,
-                    height: 370,
-                     alignment: Alignment.center,
-                    /*decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: -10,
-                          blurRadius: 0,
-                          offset: Offset(0, -5),
-                        ),
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: -20,
-                          blurRadius: 7,
-                          offset: Offset(3, 0),
-                        ),
-                      ],
-                    ),*/
-                     //margin: EdgeInsets.only(top: 0,left: 35),
-                     child: Container(
-                       decoration: ShapeDecoration(
-                         shape: RoundedRectangleBorder(),
-                         image: DecorationImage(
-                             image: AssetImage(Assets.Coframe),
-                           //width: 250,
-                           fit: BoxFit.fill,
-                           // color: Colors.white,
-                         ),
-                         ),
-                       // child: Stack(
-                       //   children: [
-                       //     Positioned(child: Image(
-                       //    //   image: AssetImage(),
-                       //     ))
-                       //   ],
-                       // )
-                       // child: Container(
-                       //   child: Image(image: AssetImage(Assets.Coframe),color: Colors.white,),
-                       // ),
-                       ),
-                  ),
+                    left: MediaQuery.of(context).size.width/7,
+                    right: MediaQuery.of(context).size.width/7,
+                    child: Container(
+                        width: 250,
+                        height: 370,
+                     // decoration: BoxDecoration(
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //    // color: Colors.black12, // Shadow color
+                        //     offset: Offset(-2, -2), // Negative offset to move shadow left and up
+                        //     blurRadius: 10.0,
+                        //     spreadRadius: -5.0,
+                        //   ),
+                        // ],
+                        // gradient: LinearGradient(
+                        //   begin: Alignment.topLeft,
+                        //   end: Alignment.bottomRight,
+                        //   colors: [
+                        //     Colors.black45,
+                        //     Colors.transparent
+                        //   ]
+                        // )  //how to give thin  elevation or shadow desigen from top and left inside the container or card and shadow or elevation should not occupy the entire area of container or card
+
+                     // ),
+                      child: ShaderMask(
+                        shaderCallback: (Rect bounds) {
+                          return LinearGradient(
+                            colors: [
+                             Colors.white,
+                             Colors.black87,
+                             Colors.white54
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ).createShader(bounds);
+                        },
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: 17, color: Colors.white),
+                            ),
+                          ),
+                                          ),
+                      ),
+                )
                 ),
 
-        
+                // Container(
+                //   width: 250,
+                //   height: 370,
+                //   decoration: BoxDecoration(
+                //     boxShadow: [
+                //       BoxShadow(
+                //         color: Colors.black,
+                //       ),
+                //     ],
+                //     image: DecorationImage(image: AssetImage(Assets.silder_Image),fit: BoxFit.cover)
+                //   ),
+                // ),
+
+
               ],
             ),
 
@@ -206,8 +208,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Text(
                               'Start exploring',
                               style: TextStyle(
-                                fontFamily: 'Montserrat SemiBold',
-                                fontSize: 20,
+                                fontFamily: 'RedHatDisplay VariableFont',
+                                fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -230,22 +232,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
         
                   Container(
-                    margin: EdgeInsets.only(top: 15),
+                    margin: EdgeInsets.only(top: 15,bottom: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Login/',
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Colors.white,
+                        InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(CupertinoPageRoute(builder: (context) => LoginScreen()));
+                          },
+                          child: Text('Login/',
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.white,
+                            ),
                           ),
                         ),
-                        Text('SignUp',
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Colors.white,
+                        InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(CupertinoPageRoute(builder: (context) => CreateAccountScreen()));
+                          },
+                          child: Text('SignUp',
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.white,
+                            ),
                           ),
                         ),
                       ],
@@ -304,4 +316,48 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 }
+
+
+// Positioned(
+//   left: MediaQuery.of(context).size.width/7,
+//   right: MediaQuery.of(context).size.width/7,
+//   child: Container(
+//     width: 250,
+//     height: 370,
+//     alignment: Alignment.center,
+//     decoration: BoxDecoration(
+//       boxShadow: [
+//         BoxShadow(
+//           color: Colors.green,
+//         ),
+//         BoxShadow(
+//           color: Colors.white70,
+//           spreadRadius: -5.0,
+//           blurRadius: 20.0,
+//         ),
+//       ],
+//     ),
+//     child: Image(image: AssetImage(Assets.Coframe),
+//     ),
+//     ),
+// ),
+//how to give gradient in Assets.frame
+
+
+// decoration: BoxDecoration(
+//   boxShadow: [
+//     BoxShadow(
+//       color: Colors.red.withOpacity(0.5),
+//       spreadRadius: 10,
+//       blurRadius: 0,
+//       offset: Offset(0, -5),
+//     ),
+//     BoxShadow(
+//       color: Colors.grey.withOpacity(0.5),
+//       spreadRadius: 20,
+//       blurRadius: 7,
+//       offset: Offset(3, 0),
+//     ),
+//   ],
+// ),
 

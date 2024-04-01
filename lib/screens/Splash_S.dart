@@ -48,7 +48,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
       });
     });
 
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 9), () {
       Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context) => const HomeScreen()));
     });
   }

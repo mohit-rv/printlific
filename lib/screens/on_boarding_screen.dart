@@ -5,6 +5,7 @@ import 'package:printlific/resources/assets.dart';
 import 'package:printlific/screens/create_account_screen.dart';
 import 'package:printlific/screens/login_screen.dart';
 import 'package:printlific/screens/login_signup_screen.dart';
+import 'package:printlific/screens/select_category.dart';
 import 'package:printlific/wigets/common_button.dart';
 
 import 'dashboard_screen.dart';
@@ -43,10 +44,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         title: "Get Started",
         onTap: () {
 
-         // Navigator.of(context).push(CupertinoPageRoute(builder: (context) => LoginSignUpScreen()));
-         // Navigator.of(context).push(CupertinoPageRoute(builder: (context) => DashboardScreen()));
-         //Navigator.of(context).push(CupertinoPageRoute(builder: (context) => CreateAccountScreen()));
-         Navigator.of(context).push(CupertinoPageRoute(builder: (context) => LoginScreen()));
+         Navigator.of(context).push(CupertinoPageRoute(builder: (context) => SelectCategoryScreen()));
 
         },
       ),
